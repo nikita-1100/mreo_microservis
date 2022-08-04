@@ -5,13 +5,13 @@ services:
     image: postgres
     restart: always
     environment:
-      - POSTGRES_DB=insurance_register
+      - POSTGRES_DB=dps_register
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
     volumes:
       - db:/var/lib/postgresql/data postgres
     ports:
-      - "5433:5432"
+      - "5434:5432"
 
 volumes:
   db:
