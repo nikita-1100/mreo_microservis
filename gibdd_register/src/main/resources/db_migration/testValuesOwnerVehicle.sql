@@ -1,5 +1,5 @@
 INSERT INTO vehicles (vin, vehicle_type)
-VALUES ('X9FHXXEEDH8G56652', 'CAR');
+VALUES ('FEFF5656454545G43', 'TRUCK');
 
-INSERT INTO owners (name, owner_type)
-VALUES ('Никитин Никита Владмирович', 'PHYSICAL');
+INSERT INTO owners (name, owner_type, inn)
+VALUES ('Никитин Никита Владмирович', 'PHYSICAL', 7712045030);

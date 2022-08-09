@@ -22,8 +22,10 @@ public class GibddRegisterService {
     @Transactional
     public Boolean tryToRegVehicle(GibddRegisterDto registerDto){
         GibddRegisterEntity registratedVehicle = new GibddRegisterEntity();
-        registratedVehicle.setVehicle(vehicleRepo.findById(registerDto.getVehicleId()).get());
-        registratedVehicle.setOwner(ownerRepo.findById(registerDto.getOwnerId()).get());
+        //registratedVehicle.setVehicle(vehicleRepo.findById(registerDto.getVehicleId()).get());
+        //registratedVehicle.setOwner(ownerRepo.findById(registerDto.getOwnerId()).get());
+        registratedVehicle.setVehicle(vehicleRepo.findByVin(registerDto.getVehicleVin()));
+        registratedVehicle.setOwner(ownerRepo.findByInn(registerDto.getOwnerInn()));
         registratedVehicle.setNumberPlate(registerDto.getNumberPlate());
         gibddRegRepo.save(registratedVehicle);
         return true;

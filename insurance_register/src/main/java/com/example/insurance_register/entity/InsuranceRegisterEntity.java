@@ -22,8 +22,6 @@ public class InsuranceRegisterEntity {
     private Long id;
     @Column(name = "vin")
     private String vin;
-    @Column(name = "number_plate")
-    private String numberPlate;
     @Column(name="date_start")
     private LocalDate dateStart;
     @Column(name="date_end")

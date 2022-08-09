@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class GibddRegisterDto {
-    private Long vehicleId;
-    private Long ownerId;
+    private String vehicleVin;
+    private Long ownerInn;
     private String numberPlate;
 }
