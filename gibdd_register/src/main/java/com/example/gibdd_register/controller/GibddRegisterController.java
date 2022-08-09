@@ -1,35 +1,61 @@
 package com.example.gibdd_register.controller;
 
-import com.example.gibdd_register.entity.GibddRegisterEntity;
-import com.example.gibdd_register.repository.GibddRegisterRepository;
+import com.example.gibdd_register.dto.GibddRegisterDto;
+import com.example.gibdd_register.service.GibddRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 public class GibddRegisterController {
+
+    //Должно происходить создание записи и удаление предыдущей через проверки микросервисов
     @Autowired
-    private GibddRegisterRepository repository;
+    GibddRegisterService gibddRegisterService;
 
-    @PostMapping("/gibdd")
-    public HttpStatus post(@RequestBody GibddRegisterEntity dpsRegister){
-
-        return HttpStatus.CREATED;
+    @PostMapping("/vehicle_registration")
+    public HttpStatus tryToRegVehicle(@RequestBody GibddRegisterDto gibddRegisterDto){
+        Boolean result = gibddRegisterService.tryToRegVehicle(gibddRegisterDto);
+        if (result==true)
+            return HttpStatus.CREATED;
+        else
+            return HttpStatus.BAD_REQUEST;
     }
 
-    @GetMapping("/gibdd_getall")
-    public List<GibddRegisterEntity> getAll(){
-        return repository.findAll();
-    }
 
-    @GetMapping("/gibdd_for_test")
-    public String getHelloWorld() {
-        return "GIBDD test. If you see it, everything good!";
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    @PostMapping("/register_vehicle")
+//    public HttpStatus post(@RequestBody GibddRegisterEntity dpsRegister){
+//
+//        return HttpStatus.CREATED;
+//    }
+//
+//    @GetMapping("/gibdd_getall")
+//    public List<GibddRegisterEntity> getAll(){
+//        return gibddRegRepo.findAll();
+//    }
+//
+//    @GetMapping("/gibdd_for_test")
+//    public String getHelloWorld() {
+//        return "GIBDD test. If you see it, everything good!";
+//    }
 
 }

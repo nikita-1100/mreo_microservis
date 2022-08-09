@@ -5,13 +5,13 @@ services:
     image: postgres
     restart: always
     environment:
-      - POSTGRES_DB=dps_register
+      - POSTGRES_DB=gibdd_register
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
     volumes:
       - db:/var/lib/postgresql/data postgres
     ports:
-      - "5434:5432"
+      - "5440:5432"
 
 volumes:
   db:
