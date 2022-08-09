@@ -1,13 +1,13 @@
-package com.example.dps_register;
+package com.example.gibdd_register;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DpsRegisterApplication {
+public class GibddRegisterApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DpsRegisterApplication.class, args);
+        SpringApplication.run(GibddRegisterApplication.class, args);
     }
 
 }

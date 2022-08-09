@@ -26,7 +26,7 @@ public class InsuranceRegisterController {
 
     @GetMapping("/for_test")
     public String getHelloWorld() {
-        return "If you see it, everything good!";
+        return "If you see it, everything good! INSURANCE";
     }
 
 }
