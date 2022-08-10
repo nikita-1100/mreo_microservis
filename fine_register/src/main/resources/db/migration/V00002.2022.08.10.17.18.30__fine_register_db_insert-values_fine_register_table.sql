@@ -1,0 +1,6 @@
+INSERT INTO fine_register (id,vin, sum)
+VALUES (1,'X9FHXXEEDH8G56652',  500),
+       (2,'X9FHXXEEDH8G56652',  500),
+       (3,'X9FHXXEEDH8G56652',  500),
+       (4,'X9WDB14B0F1001864',  2000),
+       (5,'SAJAB02E8YFL70744',  8000);

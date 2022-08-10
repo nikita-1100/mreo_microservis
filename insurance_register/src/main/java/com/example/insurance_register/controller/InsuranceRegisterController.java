@@ -14,26 +14,17 @@ public class InsuranceRegisterController {
     @Autowired
     private InsuranceRegisterRepository insuranceRepo;
 
-    @GetMapping("/check_insurance")
-    public InsuranceRegisterEntity get(@RequestBody String vin){
-        //return insuranceRepo.findByVin(vin);
-
-        return insuranceRepo.getInsuranceByVinAndDate(vin,LocalDate.now());
+    @GetMapping("/check_insurance/{vin}")
+    public Boolean get(@PathVariable String vin){
+        InsuranceRegisterEntity insurance = insuranceRepo.getInsuranceByVinAndDate(vin,LocalDate.now());
+        if (insurance!=null)
+            return true;
+        else
+            return false;
     }
-//    @PostMapping("/insurance")
-//    public HttpStatus post(@RequestBody InsuranceRegisterEntity insuranceRegister){
-//        repository.save(insuranceRegister);
-//        return HttpStatus.CREATED;
-//    }
-//
-//    @GetMapping("/insurance_getall")
-//    public List<InsuranceRegisterEntity> getAll(){
-//        return repository.findAll();
-//    }
-//
-//    @GetMapping("/for_test")
-//    public String getHelloWorld() {
-//        return "If you see it, everything good! INSURANCE";
-//    }
 
+    @GetMapping("/insurance_test")
+    public String test(){
+        return "Insurance controller is working...";
+    }
 }
