@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>dps_register</artifactId>
+    <artifactId>fine_register</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>dps_register</name>
-    <description>dps_register</description>
+    <name>fine_register</name>
+    <description>fine_register</description>
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>2021.0.3</spring-cloud.version>
@@ -25,11 +25,11 @@
             <version>42.4.0</version>
         </dependency>
 
-<!--         https://mvnrepository.com/artifact/org.flywaydb/flyway-core-->
+        <!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
-            <version>8.5.11</version>
+            <version>8.5.13</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign -->
@@ -41,6 +41,8 @@
 
 
         <!--   -Добавил вручную     -->
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -71,6 +73,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
+
     <dependencyManagement>
         <dependencies>
             <dependency>

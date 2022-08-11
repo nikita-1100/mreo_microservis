@@ -1,8 +1,10 @@
 package com.example.gibdd_register.controller;
 
 import com.example.gibdd_register.dto.GibddRegisterDto;
+import com.example.gibdd_register.entity.VehicleEntity;
 import com.example.gibdd_register.feignClient.FineRegisterProxy;
 import com.example.gibdd_register.feignClient.InsuranceRegisterProxy;
+import com.example.gibdd_register.feignClient.TechnicalInspectionProxy;
 import com.example.gibdd_register.service.GibddRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,11 +27,16 @@ public class GibddRegisterController {
     @Autowired
     FineRegisterProxy proxyFine;
 
+    @Autowired
+    TechnicalInspectionProxy proxyTechInspection;
+
     @PostMapping("/vehicle_registration")
     public HttpStatus tryToRegVehicle(@RequestBody GibddRegisterDto gibddRegisterDto){
         if (proxyInsurance.checkInsuranceByVin(gibddRegisterDto.getVehicleVin())==false)
             return HttpStatus.BAD_REQUEST;
         if (proxyFine.checkFineByVin(gibddRegisterDto.getVehicleVin())==false)
+            return HttpStatus.BAD_REQUEST;
+        if (proxyTechInspection.checkTechInspectionByVin(gibddRegisterDto.getVehicleVin())==false)
             return HttpStatus.BAD_REQUEST;
 
         Boolean result = gibddRegisterService.tryToRegVehicle(gibddRegisterDto);
@@ -46,3 +53,18 @@ public class GibddRegisterController {
 
 
 }
+
+//Sucsess
+//{
+//        "vehicleVin":"FEFF5656454545G43",
+//        "ownerInn":"4534645623",
+//        "numberPlate":"а333вв98"
+//}
+
+
+//No insurance
+//{
+//        "vehicleVin":"X9F4XXEED46P24922",
+//        "ownerInn":"4534645623",
+//        "numberPlate":"а333вв98"
+//}
